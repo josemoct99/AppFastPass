@@ -12,10 +12,6 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'menu-principal',
-    loadChildren: () => import('./menu-principal/menu-principal.module').then( m => m.MenuPrincipalPageModule)
-  },
-  {
     path: 'cartera',
     loadChildren: () => import('./cartera/cartera.module').then( m => m.CarteraPageModule)
   },
