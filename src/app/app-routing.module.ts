@@ -11,6 +11,30 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'menu-principal',
+    loadChildren: () => import('./menu-principal/menu-principal.module').then( m => m.MenuPrincipalPageModule)
+  },
+  {
+    path: 'cartera',
+    loadChildren: () => import('./cartera/cartera.module').then( m => m.CarteraPageModule)
+  },
+  {
+    path: 'atencion-cliente',
+    loadChildren: () => import('./atencion-cliente/atencion-cliente.module').then( m => m.AtencionClientePageModule)
+  },
+  {
+    path: 'actualizar-datos',
+    loadChildren: () => import('./actualizar-datos/actualizar-datos.module').then( m => m.ActualizarDatosPageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'registro',
+    loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule)
+  },
 ];
 
 @NgModule({
