@@ -7,6 +7,10 @@ const routes: Routes = [
   {
     path: '',
     component: RegistroPage
+  },
+  {
+    path: 'registro-detalle',
+    loadChildren: () => import('./registro-detalle/registro-detalle.module').then( m => m.RegistroDetallePageModule)
   }
 ];
 
