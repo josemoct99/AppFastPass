@@ -7,7 +7,7 @@
 <ion-content>
 
   <ion-list>
-    <ion-item *ngFor="let viaje of viajes">
+    <ion-item *ngFor="let viaje of viajes" [routerLink]="['/registro', viaje.id]">
       {{viaje.servicio}}
     </ion-item>
 

@@ -29,7 +29,16 @@ const routes: Routes = [
   },
   {
     path: 'registro',
-    loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule)
+    children: [
+      {
+        path: "",
+        loadChildren: () => import('./registro/registro.module').then(m => m.RegistroPageModule)
+      },
+      {
+        path: ":registroID",
+        loadChildren: () => import('./registro/registro-detalle/registro-detalle-routing.module').then(m => m.RegistroDetallePageRoutingModule)
+      }
+    ]
   },
 ];
 
