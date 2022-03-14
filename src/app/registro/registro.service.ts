@@ -51,6 +51,10 @@ export class RegistroService {
     });
    }
 
-  deleteViaje() { }
+  deleteViaje(viajeID : string) {
+    this.viajes = this.viajes.filter(viaje => {
+      return viaje.id !== viajeID
+    });
+   }
 
 }
