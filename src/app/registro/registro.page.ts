@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {RegistroService} from './registro.service'
 
 @Component({
   selector: 'app-registro',
@@ -7,30 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistroPage implements OnInit {
 
-  public viajes = [
-    {
-      id : "000001",
-      servicio: "Troncal",
-      fecha: "12/02/2021",
-      bus: "H20"
-    },
-    {
-      id : "000002",
-      servicio: "Troncal",
-      fecha: "12/02/2021",
-      bus: "D20"
-    },
-    {
-      id : "000003",
-      servicio: "Zonal",
-      fecha: "15/02/2021",
-      bus: "107A"
-    }
-  ]
+  viajes = []
 
-  constructor() { }
+  constructor(private registroService : RegistroService) { } //RegistroService solo es usado en la clase RegistroPage
 
   ngOnInit() {
+    this.viajes = this.registroService.getViajes()
   }
 
 }
