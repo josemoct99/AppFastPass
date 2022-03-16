@@ -8,12 +8,22 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'registro',
+    redirectTo: 'cartera',
     pathMatch: 'full'
   },
   {
     path: 'cartera',
-    loadChildren: () => import('./cartera/cartera.module').then( m => m.CarteraPageModule)
+    children: [
+      {
+        path: "",
+        loadChildren: () => import('./cartera/cartera.module').then( m => m.CarteraPageModule)
+      },
+      {
+        path: ":carteraID",
+        loadChildren: () => import('./cartera/cartera-detalle/cartera-detalle-routing.module').then( m => m.CarteraDetallePageRoutingModule)
+      }
+    ]
+
   },
   {
     path: 'atencion-cliente',

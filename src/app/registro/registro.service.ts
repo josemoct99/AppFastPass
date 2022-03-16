@@ -31,7 +31,7 @@ export class RegistroService {
   constructor() { }
 
   getViajes() {
-    return [...this.viajes] //Los puntos quieren decir que será una copia de lo que se requiere
+    return [...this.viajes.reverse()] //Los puntos quieren decir que será una copia de lo que se requiere
   }
 
   getViaje(viajeID: string) {

@@ -7,6 +7,10 @@ const routes: Routes = [
   {
     path: '',
     component: CarteraPage
+  },
+  {
+    path: 'cartera-detalle',
+    loadChildren: () => import('./cartera-detalle/cartera-detalle.module').then( m => m.CarteraDetallePageModule)
   }
 ];
 
