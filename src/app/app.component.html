@@ -1,4 +1,20 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
-  <!--aasa-->
+  <ion-menu contentId="main-content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>FastPass</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-item [routerLink]="">Menú Principal</ion-item>
+        <ion-item>Gestionar viajes</ion-item>
+        <ion-item>Gestionar cartera</ion-item>
+        <ion-item>Actualizar datos</ion-item>
+        <ion-item>Atención al cliente</ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <ion-router-outlet id="main-content"></ion-router-outlet>
 </ion-app>
