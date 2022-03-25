@@ -8,7 +8,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'cartera',
     pathMatch: 'full'
   },
   {
@@ -49,7 +49,9 @@ const routes: Routes = [
         loadChildren: () => import('./registro/registro-detalle/registro-detalle-routing.module').then(m => m.RegistroDetallePageRoutingModule)
       }
     ]
-  },
+  }
+
+
 ];
 
 @NgModule({

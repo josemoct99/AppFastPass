@@ -5,7 +5,7 @@ import { Viaje } from './registro-detalle/registro.model';
 })
 export class RegistroService {
 
-
+    
 
     public viajes: Viaje[] = [
     {

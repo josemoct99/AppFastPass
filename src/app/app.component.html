@@ -1,20 +1,21 @@
 <ion-app>
-  <ion-menu contentId="main-content" autoHide="false">
-    <ion-header>
-      <ion-toolbar>
-        <ion-title>FastPass</ion-title>
-      </ion-toolbar>
-    </ion-header>
-    <ion-content>
-      <ion-list>
-        <ion-item [routerLink]="'/home'">Menú Principal</ion-item>
-        <ion-item [routerLink]="'/registro'">Gestionar viajes</ion-item>
-        <ion-item [routerLink]="'/cartera'">Gestionar cartera</ion-item>
-        <ion-item [routerLink]="'/actualizar-datos'">Actualizar datos</ion-item>
-        <ion-item [routerLink]="'/atencion-cliente'">Atención al cliente</ion-item>
-      </ion-list>
-    </ion-content>
-  </ion-menu>
-
-  <ion-router-outlet id="main-content"></ion-router-outlet>
-</ion-app>
+    <ion-menu contentId="main-content" autoHide="false" [disabled]="isLogged">
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>FastPass</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-list>
+          <ion-item [routerLink]="'/home'">Menú Principal</ion-item>
+          <ion-item [routerLink]="'/registro'">Gestionar viajes</ion-item>
+          <ion-item [routerLink]="'/cartera'">Gestionar cartera</ion-item>
+          <ion-item [routerLink]="'/actualizar-datos'">Actualizar datos</ion-item>
+          <ion-item [routerLink]="'/atencion-cliente'">Atención al cliente</ion-item>
+          <ion-item [routerLink]="'/login'">Cerrar sesion</ion-item>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+    
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-app>
