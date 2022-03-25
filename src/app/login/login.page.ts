@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Injectable } from '@angular/core';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,9 @@ export class LoginPage implements OnInit {
 
   public isLogged : boolean;
 
-  constructor() { }
+  constructor(private menu: MenuController) {
+    this.menu.enable(false, 'custom');
+   }
 
   ngOnInit() {
     if(1>0){
