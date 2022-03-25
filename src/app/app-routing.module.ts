@@ -8,7 +8,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'cartera',
+    redirectTo: 'home',
     pathMatch: 'full'
   },
   {

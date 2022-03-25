@@ -1,5 +1,5 @@
 <ion-app>
-  <ion-menu contentId="main-content">
+  <ion-menu contentId="main-content" autoHide="false">
     <ion-header>
       <ion-toolbar>
         <ion-title>FastPass</ion-title>
@@ -7,11 +7,11 @@
     </ion-header>
     <ion-content>
       <ion-list>
-        <ion-item [routerLink]="">Menú Principal</ion-item>
-        <ion-item>Gestionar viajes</ion-item>
-        <ion-item>Gestionar cartera</ion-item>
-        <ion-item>Actualizar datos</ion-item>
-        <ion-item>Atención al cliente</ion-item>
+        <ion-item [routerLink]="'/home'">Menú Principal</ion-item>
+        <ion-item [routerLink]="'/registro'">Gestionar viajes</ion-item>
+        <ion-item [routerLink]="'/cartera'">Gestionar cartera</ion-item>
+        <ion-item [routerLink]="'/actualizar-datos'">Actualizar datos</ion-item>
+        <ion-item [routerLink]="'/atencion-cliente'">Atención al cliente</ion-item>
       </ion-list>
     </ion-content>
   </ion-menu>
