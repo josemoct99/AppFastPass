@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { AlertController, ToastController } from '@ionic/angular';
 import { CarteraService } from '../cartera.service';
 import { Pago } from './cartera-model';
 
@@ -15,7 +16,11 @@ export class CarteraDetallePage implements OnInit {
   imagen : String
 
 
-  constructor(private activatedRoute : ActivatedRoute, private carteraService : CarteraService) { }
+  constructor(
+    private activatedRoute : ActivatedRoute,
+    private carteraService : CarteraService,
+    public alertController: AlertController,
+    public toastController : ToastController) { }
 
   ngOnInit() {
       this.activatedRoute.paramMap.subscribe(paramMap =>{ //ParaMap: Obtener la URL (PARAMETROS) , Suscribe: Recorre todos los parametros
@@ -36,6 +41,40 @@ export class CarteraDetallePage implements OnInit {
         this.imagen = "https://media.istockphoto.com/vectors/wallet-linear-icon-modern-outline-wallet-logo-concept-on-white-from-vector-id1130930633?k=20&m=1130930633&s=170667a&w=0&h=xrzjFp9-TbXslRdB7blVEkRkvavgyYoItCAxkBfM9Sc=";
     }
 
+  }
+
+  async presentAlert(){
+    const alert = await this.alertController.create({
+      header : "Informar de error",
+      message : "Un informe de error sera enviado con los datos del pago, deseas continuar?",
+      buttons : [
+        {
+          text : "No",
+          handler : ()=>{
+            console.log("Pulso no");
+          }
+        },
+        {
+          text : "Si",
+          handler : ()=>{
+            console.log("Se ha enviado el informe correctamente");
+            this.presentToast();
+          }
+        }
+      ]
+    });
+    await alert.present();
+    let result = await alert.onDidDismiss();
+    console.log(result);
+  }
+
+  async presentToast(){
+    const toast = await this.toastController.create({
+      message : "Se ha enviado el informe correctamente",
+      duration : 1500,
+      position : "bottom"
+    });
+    toast.present();
   }
 
 }

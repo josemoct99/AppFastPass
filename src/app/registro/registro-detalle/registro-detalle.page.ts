@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute} from '@angular/router'; //Me permite mirar los parametros de la URL
+import { AlertController, ToastController } from '@ionic/angular';
 import { RegistroService } from '../registro.service'; //Utilizamos nuevamente el servicio para acceder a metodos de la BD
 import { Viaje } from './registro.model'; //Utilizamos el modelo viaje
 
@@ -14,7 +15,11 @@ export class RegistroDetallePage implements OnInit {
 
   imagen : String
 
-  constructor(private activatedRoute : ActivatedRoute, private registroService : RegistroService) { }
+  constructor(
+    private activatedRoute : ActivatedRoute, 
+    private registroService : RegistroService,
+    public alertController: AlertController,
+    public toastController : ToastController) { }
 
   ngOnInit() { //Inicio al cargar la pagina
     this.activatedRoute.paramMap.subscribe(paramMap =>{ //ParaMap: Obtener la URL (PARAMETROS) , Suscribe: Recorre todos los parametros
@@ -32,5 +37,37 @@ export class RegistroDetallePage implements OnInit {
 
   }
 
+  async presentAlert(){
+    const alert = await this.alertController.create({
+      header : "Informar de error",
+      message : "Un informe de error sera enviado con los datos del viaje, deseas continuar?",
+      buttons : [
+        {
+          text : "No",
+          handler : ()=>{
+            console.log("Pulso no");
+          }
+        },
+        {
+          text : "Si",
+          handler : ()=>{
+            console.log("Se ha enviado el informe correctamente");
+            this.presentToast();
+          }
+        }
+      ]
+    });
+    await alert.present();
+    let result = await alert.onDidDismiss();
+    console.log(result);
+  }
 
+  async presentToast(){
+    const toast = await this.toastController.create({
+      message : "Se ha enviado el informe correctamente",
+      duration : 1500,
+      position : "bottom"
+    });
+    toast.present();
+  }
 }

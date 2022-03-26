@@ -4,7 +4,10 @@
       <ion-back-button defaultHref = "/registro"></ion-back-button>
     </ion-buttons>
 
-    <ion-title>Registro de viaje {{viaje.id}}</ion-title>
+    <ion-title>Registro viaje {{viaje.id}}</ion-title>
+    <ion-button (click)="presentAlert()" slot="end" color="dark">
+      <ion-icon name="information-circle-outline" ></ion-icon>
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 
