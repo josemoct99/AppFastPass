@@ -10,7 +10,13 @@ export class RegistroPage implements OnInit {
 
   viajes = []
 
-  constructor(private registroService : RegistroService) { } //RegistroService solo sera usado en la clase RegistroPage
+  logo : String
+
+  constructor(private registroService : RegistroService) {
+
+    this.logo = "assets/img/logofastpass.png";
+
+   } //RegistroService solo sera usado en la clase RegistroPage
 
   ngOnInit() { //Inicio al cargar la pagina
     this.viajes = this.registroService.getViajes()

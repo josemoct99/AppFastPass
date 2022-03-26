@@ -1,21 +1,25 @@
 <ion-app>
     <ion-menu contentId="main-content" autoHide="false" menuId="custom">
       <ion-header>
-        <ion-toolbar>
+        <ion-toolbar color="dark">
           <ion-title>FastPass</ion-title>
         </ion-toolbar>
       </ion-header>
-      <ion-content>
-        <ion-list>
-          <ion-item [routerLink]="'/home'">Menú Principal</ion-item>
-          <ion-item [routerLink]="'/registro'">Gestionar viajes</ion-item>
-          <ion-item [routerLink]="'/cartera'">Gestionar cartera</ion-item>
-          <ion-item [routerLink]="'/actualizar-datos'">Actualizar datos</ion-item>
-          <ion-item [routerLink]="'/atencion-cliente'">Atención al cliente</ion-item>
-          <ion-item [routerLink]="'/login'">Cerrar sesion</ion-item>
+      <ion-content color="dark">
+        <ion-list >
+          <ion-item color="dark" [routerLink]="'/home'">Principal</ion-item>
+          <ion-item color="dark" [routerLink]="'/registro'">Gestionar viajes</ion-item>
+          <ion-item color="dark" [routerLink]="'/cartera'">Gestionar cartera</ion-item>
+          <ion-item color="dark" [routerLink]="'/actualizar-datos'">Actualizar datos</ion-item>
+          <ion-item color="dark" [routerLink]="'/atencion-cliente'">Atención al cliente</ion-item>
+
         </ion-list>
       </ion-content>
+
+      <ion-footer class="bar-stable">
+        <ion-item color="dark" [routerLink]="'/login'">Cerrar sesión</ion-item>
+    </ion-footer>
     </ion-menu>
-    
+
     <ion-router-outlet id="main-content"></ion-router-outlet>
   </ion-app>

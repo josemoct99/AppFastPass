@@ -9,8 +9,10 @@ import { CarteraService } from './cartera.service';
 export class CarteraPage implements OnInit {
 
   pagos = []
-
-  constructor(private carteraService : CarteraService) { }
+  logo : String
+  constructor(private carteraService : CarteraService) {
+    this.logo = "assets/img/logofastpass.png";
+   }
 
   ngOnInit() {
     this.pagos = this.carteraService.getPagos();

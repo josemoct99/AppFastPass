@@ -18,7 +18,7 @@ export class RegistroDetallePage implements OnInit {
 
   ngOnInit() { //Inicio al cargar la pagina
     this.activatedRoute.paramMap.subscribe(paramMap =>{ //ParaMap: Obtener la URL (PARAMETROS) , Suscribe: Recorre todos los parametros
-      //Redireccionamos 
+      //Redireccionamos
       const idRecibida = paramMap.get('registroID'); //Guardo en idRecibida el id obtenido
       this.viaje = this.registroService.getViaje(idRecibida);
       console.log(this.viaje);
@@ -29,6 +29,8 @@ export class RegistroDetallePage implements OnInit {
       this.imagen = 'https://www.kienyke.com/sites/default/files/2021-01/Transmilenio-buses-nuevos-a-gas.jpg'
     }
     console.log(this.imagen);
+
   }
+
 
 }

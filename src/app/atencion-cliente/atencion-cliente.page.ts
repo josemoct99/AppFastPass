@@ -7,7 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AtencionClientePage implements OnInit {
 
-  constructor() { }
+  logo : String
+
+  constructor() {
+    this.logo = "assets/img/logofastpass.png";
+  }
 
   ngOnInit() {
   }

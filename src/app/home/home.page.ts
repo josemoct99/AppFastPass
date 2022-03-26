@@ -7,6 +7,11 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  logo : String
+
+  constructor() {
+
+    this.logo = "assets/img/logofastpass.png";
+  }
 
 }
