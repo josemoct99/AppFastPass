@@ -5,5 +5,24 @@
 </ion-header>
 
 <ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-img src="assets/img/logocoloreado.jpeg"></ion-img>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <h1 class="ion-text-center">¡Bienvenido!</h1>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12" class="ion-text-center">
+        <ion-button expand="block" color="dark" [routerLink]="'/home'" (click)="cambiarMenu()">Entra</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
 </ion-content>

@@ -1,5 +1,5 @@
 <ion-app>
-    <ion-menu contentId="main-content" autoHide="false" menuId="custom">
+    <ion-menu [hidden]="false" contentId="main-content">
       <ion-header>
         <ion-toolbar color="dark">
           <ion-title>FastPass</ion-title>
@@ -17,7 +17,7 @@
       </ion-content>
 
       <ion-footer class="bar-stable">
-        <ion-item color="dark" [routerLink]="'/login'">Cerrar sesión</ion-item>
+        <ion-item color="dark" [routerLink]="'/login'" (click)="cambiarMenu()">Cerrar sesión</ion-item>
     </ion-footer>
     </ion-menu>
 

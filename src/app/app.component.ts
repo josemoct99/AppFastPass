@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MenuController } from '@ionic/angular';
 import { LoginPage } from './login/login.page';
 
 @Component({
@@ -10,7 +11,7 @@ export class AppComponent implements OnInit{
 
   public isLogged : boolean;
 
-  constructor(private loginPage : LoginPage) {}
+  constructor(private loginPage : LoginPage, private menu: MenuController) {}
 
     ngOnInit() { //Inicio al cargar la pagina
       this.isLogged = this.loginPage.isLogged;
@@ -24,5 +25,9 @@ export class AppComponent implements OnInit{
   verificar(){
     this.isLogged = this.loginPage.isLogged;
   }
-  
+
+  cambiarMenu(){
+    this.menu.enable(false);
+  }
+
 }
