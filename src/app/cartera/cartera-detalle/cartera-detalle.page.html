@@ -1,9 +1,40 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>cartera-detalle</ion-title>
+  <ion-toolbar> <!--Parte de arriba-->
+    <ion-buttons slot="start"> <!--Para que este al inicio de la pag-->
+      <ion-back-button defaultHref = "/registro"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>Registro de pago {{pago.id}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+  <ion-grid class="ion-no-padding"> <!--Rejilla que puede ubicar elementos-->
+    <ion-row><!--Primera fila-->
+      <ion-col>
+        <ion-img [src]="imagen" ></ion-img>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <h1 class="ion-text-center">Pago con {{pago.banco}} realizado</h1>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <h4>El valor pagado ha sido ${{pago.valor}}</h4>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <h4>Fecha de pago: {{pago.fecha}}</h4>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
 
 </ion-content>
