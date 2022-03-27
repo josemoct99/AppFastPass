@@ -14,12 +14,25 @@
   <ion-grid >
     <ion-row>
       <ion-col size="8">
-        <h1>¡Hola Usuario!</h1>
+        <h1>¡Hola {{usuario.nombre}}!</h1>
       </ion-col>
       <ion-col size="4">
         <ion-img [src]='logo'></ion-img>
       </ion-col>
     </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-img [src]="perfil"></ion-img>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <iframe src="https://forum.ionicframework.com/t/embedded-web-in-mobile-application/108217/2"></iframe>
+      </ion-col>
+    </ion-row>
+
   </ion-grid>
 
 </ion-content>
