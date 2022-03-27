@@ -40,7 +40,7 @@ export class RegistroDetallePage implements OnInit {
   async presentAlert(){
     const alert = await this.alertController.create({
       header : "Informar de error",
-      message : "Un informe de error sera enviado con los datos del viaje, deseas continuar?",
+      message : "Un informe de error será enviado con los datos del viaje, ¿Deseas continuar?",
       buttons : [
         {
           text : "No",

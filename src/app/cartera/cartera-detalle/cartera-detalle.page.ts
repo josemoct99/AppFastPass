@@ -46,7 +46,7 @@ export class CarteraDetallePage implements OnInit {
   async presentAlert(){
     const alert = await this.alertController.create({
       header : "Informar de error",
-      message : "Un informe de error sera enviado con los datos del pago, deseas continuar?",
+      message : "Un informe de error será enviado con los datos del pago, ¿Deseas continuar?",
       buttons : [
         {
           text : "No",
