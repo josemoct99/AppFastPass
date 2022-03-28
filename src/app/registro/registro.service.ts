@@ -10,21 +10,21 @@ export class RegistroService {
     public viajes: Viaje[] = [
     {
       id : "000001",
-      servicio: "Troncal",
+      tipo: "Troncal",
       fecha: "12/02/2021",
-      bus: "H20"
+      ruta: "H20"
     },
     {
       id : "000002",
-      servicio: "Troncal",
+      tipo: "Troncal",
       fecha: "12/02/2021",
-      bus: "D20"
+      ruta: "D20"
     },
     {
       id : "000003",
-      servicio: "Zonal",
+      tipo: "Zonal",
       fecha: "15/02/2021",
-      bus: "107A"
+      ruta: "107A"
     }
   ]
 
@@ -42,12 +42,12 @@ export class RegistroService {
     }
   }
 
-  addViaje(id : string, servicio: string, fecha: string, bus: string) {
+  addViaje(id : string, tipo: string, fecha: string, ruta: string) {
     this.viajes.push({
       id,
-      servicio,
+      tipo,
       fecha,
-      bus
+      ruta
     });
    }
 

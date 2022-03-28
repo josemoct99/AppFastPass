@@ -1,6 +1,6 @@
 export interface Viaje{
   id: string,
-  servicio: string,
+  tipo: string,
   fecha : string,
-  bus : string
+  ruta : string
 }

@@ -16,7 +16,7 @@ export class RegistroDetallePage implements OnInit {
   imagen : String
 
   constructor(
-    private activatedRoute : ActivatedRoute, 
+    private activatedRoute : ActivatedRoute,
     private registroService : RegistroService,
     public alertController: AlertController,
     public toastController : ToastController) { }
@@ -28,7 +28,7 @@ export class RegistroDetallePage implements OnInit {
       this.viaje = this.registroService.getViaje(idRecibida);
       console.log(this.viaje);
     })
-    if(this.viaje.servicio == 'Troncal'){
+    if(this.viaje.tipo == 'Troncal'){
       this.imagen = 'https://www.transmilenio.gov.co/publicaciones/151309/ya-ruedan-por-la-ciudad-los-primeros-336-buses-nuevos-de-transmilenio/info/transmilenio/media/galeria290630.jpg';
     }else{
       this.imagen = 'https://www.kienyke.com/sites/default/files/2021-01/Transmilenio-buses-nuevos-a-gas.jpg'
