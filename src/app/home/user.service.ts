@@ -9,7 +9,8 @@ export class UserService {
   public usuario : Usuario ={
     id : "00001",
     dni : "1031182625",
-    clave : "zqed93id",
+    clave : "miclave123",
+    fingerprint : "z128sd8378f45wt8",
     nombre : "Jose",
     apellido : "Ricaurte",
     f_nacimiento : "03/10/1999",

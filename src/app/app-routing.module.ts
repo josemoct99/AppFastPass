@@ -49,6 +49,9 @@ const routes: Routes = [
         loadChildren: () => import('./registro/registro-detalle/registro-detalle-routing.module').then(m => m.RegistroDetallePageRoutingModule)
       }
     ]
+  },  {
+    path: 'inscripcion',
+    loadChildren: () => import('./inscripcion/inscripcion.module').then( m => m.InscripcionPageModule)
   }
 
 

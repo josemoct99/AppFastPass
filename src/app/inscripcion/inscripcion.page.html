@@ -1,0 +1,136 @@
+<ion-header>
+
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start"> <!--Para que este al inicio de la pag-->
+      <ion-back-button defaultHref = "/login"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>Registro de datos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-grid>
+
+  <ion-row class="datos">
+    <ion-col>
+      <h4> Escribe tu nombre </h4>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col>
+      <ion-input type="text" placeholder="Nombre" #name></ion-input>
+    </ion-col>
+  </ion-row>
+
+
+  <ion-row class="datos">
+    <ion-col>
+      <h4> Escribe tus apellidos </h4>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col>
+      <ion-input type="text" placeholder="Apellidos" #apellido></ion-input>
+    </ion-col>
+  </ion-row>
+
+
+  <ion-row class="datos">
+    <ion-col>
+      <h4> Escribe tus correo electrónico </h4>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col>
+      <ion-input type="text" placeholder="Correo" #correo></ion-input>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="datos">
+    <ion-col>
+      <h4> Contraseña: </h4>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col>
+      <ion-input type="password"  #password></ion-input>
+    </ion-col>
+  </ion-row>
+
+
+  <ion-row class="datos">
+    <ion-col>
+      <h4> Confirma tu contraseña </h4>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col>
+      <ion-input type="password"  #confpassword></ion-input>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col>
+      <h3 class="importante">Datos personales importantes</h3>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="datos">
+    <ion-col>
+      <h4> Digita tu identificación (C.C. o T.I)  </h4>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col>
+      <ion-input type="number"  #dni></ion-input>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="datos">
+    <ion-col>
+      <h4> Elige tu fecha de nacimiento  </h4>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col>
+      <ion-input type="date"  #fecha></ion-input>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="datos">
+    <ion-col>
+      <h4> Digita tu número de celular  </h4>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col>
+      <ion-input type="tel"  #cell></ion-input>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col>
+      <a href="">Términos y condiciones del tratamiento de datos</a>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col class="ion-text-center">
+        <ion-button expand="block" color="dark" (click)="agregarUsuario(name, apellido, correo, password, confpassword, dni, fecha, cell);">Enviar datos</ion-button>
+    </ion-col>
+  </ion-row>
+
+
+</ion-grid>
+
+
+</ion-content>
