@@ -29,13 +29,11 @@ export class InscripcionPage implements OnInit {
 
       this.usuario ={
         id : "00002",
-        dni : dni.value.toString(),
         clave : password.value.toString(),
         fingerprint : "finger00x02s1d562",
         nombre : nombre.value.toString(),
         apellido : apellidos.value.toString(),
         f_nacimiento : fecha.value.toString(),
-        edad : 21,
         num_cel : parseInt(cell.value.toString()),
         correo : correo.value.toString()
       }
