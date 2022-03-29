@@ -29,9 +29,9 @@ export class RegistroDetallePage implements OnInit {
       console.log(this.viaje);
     })
     if(this.viaje.tipo == 'Troncal'){
-      this.imagen = 'https://www.transmilenio.gov.co/publicaciones/151309/ya-ruedan-por-la-ciudad-los-primeros-336-buses-nuevos-de-transmilenio/info/transmilenio/media/galeria290630.jpg';
+      this.imagen = 'assets/img/rojo.jpg';
     }else{
-      this.imagen = 'https://www.kienyke.com/sites/default/files/2021-01/Transmilenio-buses-nuevos-a-gas.jpg'
+      this.imagen = 'assets/img/azul.jpg'
     }
     console.log(this.imagen);
 
