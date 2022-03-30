@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute} from '@angular/router'; //Me permite mirar los parametros de la URL
 import { AlertController, ToastController } from '@ionic/angular';
+import { InteractionService } from 'src/app/services/interaction.service';
 import { RegistroService } from '../registro.service'; //Utilizamos nuevamente el servicio para acceder a metodos de la BD
 import { Viaje } from './registro.model'; //Utilizamos el modelo viaje
 
@@ -19,7 +20,8 @@ export class RegistroDetallePage implements OnInit {
     private activatedRoute : ActivatedRoute,
     private registroService : RegistroService,
     public alertController: AlertController,
-    public toastController : ToastController) { }
+    public toastController : ToastController,
+    public interaction : InteractionService) { }
 
   ngOnInit() { //Inicio al cargar la pagina
     this.activatedRoute.paramMap.subscribe(paramMap =>{ //ParaMap: Obtener la URL (PARAMETROS) , Suscribe: Recorre todos los parametros
@@ -37,37 +39,10 @@ export class RegistroDetallePage implements OnInit {
 
   }
 
-  async presentAlert(){
-    const alert = await this.alertController.create({
-      header : "Informar de error",
-      message : "Un informe de error será enviado con los datos del viaje, ¿Deseas continuar?",
-      buttons : [
-        {
-          text : "No",
-          handler : ()=>{
-            console.log("Pulso no");
-          }
-        },
-        {
-          text : "Si",
-          handler : ()=>{
-            console.log("Se ha enviado el informe correctamente");
-            this.presentToast();
-          }
-        }
-      ]
-    });
-    await alert.present();
-    let result = await alert.onDidDismiss();
-    console.log(result);
-  }
-
-  async presentToast(){
-    const toast = await this.toastController.create({
-      message : "Se ha enviado el informe correctamente",
-      duration : 1500,
-      position : "bottom"
-    });
-    toast.present();
+  presentAlert(){
+    this.interaction.mostrarAlertaDoble(
+      "Informar de error",
+      "Un informe de error será enviado con los datos del viaje, ¿Deseas continuar?"
+      ,"Se ha enviado el informe correctamente");
   }
 }

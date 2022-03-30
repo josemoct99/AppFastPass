@@ -55,7 +55,6 @@ const routes: Routes = [
     loadChildren: () => import('./inscripcion/inscripcion.module').then( m => m.InscripcionPageModule)
   }
 
-
 ];
 
 @NgModule({

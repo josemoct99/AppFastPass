@@ -32,7 +32,7 @@ export class ActualizarDatosPage implements OnInit {
       num_cel : 2,
       correo : "1031182625",
     }
-   }
+  }
 
   ngOnInit() {
     this.firebase.getUser<Usuario>("1031182625").subscribe( res=>{

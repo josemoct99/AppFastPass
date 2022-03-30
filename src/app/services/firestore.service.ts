@@ -10,8 +10,12 @@ export class FirestoreService {
   constructor(private firestore: AngularFirestore) { }
 
   createUser(usuario: Usuario, path : string, id : string){
-    const collection = this.firestore.collection(path);
-    return collection.doc(id).set(usuario);
+    try{
+      const collection =this.firestore.collection(path).doc(id).set(usuario);
+      return  collection;
+    }catch( err ){
+      return err;
+    }
   }
 
   getUser<tipo>(id : string){

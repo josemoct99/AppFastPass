@@ -7,17 +7,30 @@
       </ion-header>
       <ion-content color="dark">
         <ion-list >
-          <ion-item color="dark" [routerLink]="'/home'">Principal</ion-item>
-          <ion-item color="dark" [routerLink]="'/registro'">Gestionar viajes</ion-item>
-          <ion-item color="dark" [routerLink]="'/cartera'">Gestionar cartera</ion-item>
-          <ion-item color="dark" [routerLink]="'/actualizar-datos'">Actualizar datos</ion-item>
-          <ion-item color="dark" [routerLink]="'/atencion-cliente'">Atención al cliente</ion-item>
+          <ion-menu-toggle>
+            <ion-item color="dark" [routerLink]="'/home'">Principal</ion-item>
+          </ion-menu-toggle>
+          <ion-menu-toggle>
+            <ion-item color="dark" [routerLink]="'/registro'">Gestionar viajes</ion-item>
+          </ion-menu-toggle>
+          <ion-menu-toggle>
+            <ion-item color="dark" [routerLink]="'/cartera'">Gestionar cartera</ion-item>
+          </ion-menu-toggle>
+          <ion-menu-toggle>
+            <ion-item color="dark" [routerLink]="'/actualizar-datos'">Actualizar datos</ion-item>
+          </ion-menu-toggle>
+          <ion-menu-toggle>
+            <ion-item color="dark" [routerLink]="'/atencion-cliente'">Atención al cliente</ion-item>
+          </ion-menu-toggle>
+
 
         </ion-list>
       </ion-content>
 
       <ion-footer class="bar-stable">
-        <ion-item color="dark" [routerLink]="'/login'" (click)="cambiarMenu()">Cerrar sesión</ion-item>
+        <ion-menu-toggle>
+          <ion-item color="dark" [routerLink]="'/login'" (click)="cambiarMenu()">Cerrar sesión</ion-item>
+        </ion-menu-toggle>
     </ion-footer>
     </ion-menu>
 

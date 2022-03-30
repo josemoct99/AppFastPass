@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { IonInput } from '@ionic/angular';
 import { componentOnReady } from '@ionic/core';
 import { Usuario } from '../home/user-model';
+import { FirestoreService } from '../services/firestore.service';
+import { InteractionService } from '../services/interaction.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-inscripcion',
@@ -12,12 +15,15 @@ export class InscripcionPage implements OnInit {
 
   usuario : Usuario
 
-  constructor() { }
+  constructor(
+    private firebase : FirestoreService,
+    private interaction : InteractionService,
+    private routerLink : Router) { }
 
   ngOnInit() {
   }
 
-  agregarUsuario(
+  async agregarUsuario(
     nombre : IonInput,
     apellidos: IonInput,
     correo : IonInput,
@@ -27,8 +33,10 @@ export class InscripcionPage implements OnInit {
     fecha : IonInput,
     cell : IonInput){
 
+      await this.interaction.presentLoading("Guardando usuario...");
+
       this.usuario ={
-        id : "00002",
+        id : dni.value.toString(),
         clave : password.value.toString(),
         fingerprint : "finger00x02s1d562",
         nombre : nombre.value.toString(),
@@ -37,8 +45,16 @@ export class InscripcionPage implements OnInit {
         num_cel : parseInt(cell.value.toString()),
         correo : correo.value.toString()
       }
-
       console.log(this.usuario);
+      this.firebase.createUser(this.usuario,"usuarios",this.usuario.id).then(()=>{
+        this.interaction.closeLoading();
+        this.interaction.mostrarAlertaSola("Ya puedes iniciar sesión", "Usuario guardado con éxito");
+        this.routerLink.navigate(['/login']);
+      }).catch((err)=>{
+        this.interaction.closeLoading();
+        this.interaction.mostrarAlertaSola("Inténtalo de nuevo", "Error al guardar usuario");
+      });
+
 
   }
 

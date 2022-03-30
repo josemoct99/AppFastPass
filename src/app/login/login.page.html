@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar color="dark">
-    <ion-title>Inicio de Sesión</ion-title>
+    <ion-title>Inicio de sesión</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -14,19 +14,57 @@
 
     <ion-row>
       <ion-col>
-        <h1 class="ion-text-center">¡Bienvenido!</h1>
+        <h2 class="ion-text-center">¡Bienvenido!</h2>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label>
+            Correo electrónico:
+          </ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-input [(ngModel)]="credenciales.correo" type="text" placeholder="usuario@correo.com"></ion-input>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label>
+            Contraseña:
+          </ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-input [(ngModel)]="credenciales.contra" type="password" ></ion-input>
       </ion-col>
     </ion-row>
 
     <ion-row>
       <ion-col class="ion-text-center">
-        <ion-button expand="block" color="dark" [routerLink]="'/home'" (click)="cambiarMenu()">Entra</ion-button>
+        <ion-button expand="block" color="dark" (click)="logIn()">Inicia sesión</ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <h5 class="ion-text-center">¿No tienes una cuenta?</h5>
       </ion-col>
     </ion-row>
 
     <ion-row>
       <ion-col class="ion-text-center">
-        <ion-button expand="block" color="dark" [routerLink]="'/inscripcion'">Registrate</ion-button>
+        <ion-button expand="block" color="dark" [routerLink]="'/inscripcion'">Regístrate</ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>
