@@ -14,7 +14,12 @@ import { AuthService } from '../services/auth.service';
 })
 export class InscripcionPage implements OnInit {
 
-  usuario : Usuario
+  contra : String
+
+  usuario : Usuario ={
+    nombre : null,
+    id : null
+  }
 
   constructor(
     private firebase : FirestoreService,
@@ -25,28 +30,36 @@ export class InscripcionPage implements OnInit {
   ngOnInit() {
   }
 
-  async agregarUsuario(
-    nombre : IonInput,
-    apellidos: IonInput,
-    correo : IonInput,
-    password : IonInput,
-    confpassword : IonInput,
-    dni : IonInput,
-    fecha : IonInput,
-    cell : IonInput){
+  camposLlenos(){
+    if(this.usuario.id !=null && this.usuario.apellido !=null && this.usuario.clave !=null && 
+      this.usuario.correo !=null && this.usuario.f_nacimiento !=null && this.usuario.fingerprint !=null &&
+      this.usuario.nombre !=null && this.usuario.num_cel !=null){
+      return true;
+    }
+    console.log(this.usuario);
+    return false;
+  }
 
+  async agregarUsuario(){
+    this.usuario.fingerprint = (Math.floor(Math.random() * 100000) + 1).toString();
+
+    if(!this.camposLlenos()){
+      this.interaction.mostrarToast("Complete todos los campos correctamente");
+      return;
+    }
+
+    if(this.usuario.clave != this.contra){
+      this.interaction.mostrarToast("Las constrasenias no coinciden");
+      console.log(this.usuario.clave ,"-->", this.contra);
+      return;
+    }
+
+    if(this.usuario.clave.length<7){
+      this.interaction.mostrarToast("La contrasenia debe tener mas de 6 caracteres");
+      return;
+    }
       await this.interaction.presentLoading("Guardando usuario...");
 
-      this.usuario ={
-        id : dni.value.toString(),
-        clave : password.value.toString(),
-        fingerprint : "finger00x02s1d562",
-        nombre : nombre.value.toString(),
-        apellido : apellidos.value.toString(),
-        f_nacimiento : fecha.value.toString(),
-        num_cel : parseInt(cell.value.toString()),
-        correo : correo.value.toString()
-      }
       console.log(this.usuario);
       const inicio = this.auth.SignIn(this.usuario).catch((err)=>{
         this.interaction.mostrarAlertaSola("Inténtalo de nuevo", "Error al guardar usuario");

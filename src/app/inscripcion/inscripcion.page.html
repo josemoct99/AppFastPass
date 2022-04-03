@@ -20,7 +20,7 @@
 
   <ion-row>
     <ion-col>
-      <ion-input type="text" placeholder="Nombre" #name></ion-input>
+      <ion-input type="text" placeholder="Nombre" [(ngModel)]="usuario.nombre"></ion-input>
     </ion-col>
   </ion-row>
 
@@ -33,7 +33,7 @@
 
   <ion-row>
     <ion-col>
-      <ion-input type="text" placeholder="Apellidos" #apellido></ion-input>
+      <ion-input type="text" placeholder="Apellidos" [(ngModel)]="usuario.apellido"></ion-input>
     </ion-col>
   </ion-row>
 
@@ -46,7 +46,7 @@
 
   <ion-row>
     <ion-col>
-      <ion-input type="text" placeholder="Correo" #correo></ion-input>
+      <ion-input type="text" placeholder="Correo" [(ngModel)]="usuario.correo"></ion-input>
     </ion-col>
   </ion-row>
 
@@ -58,7 +58,7 @@
 
   <ion-row>
     <ion-col>
-      <ion-input type="password"  #password></ion-input>
+      <ion-input type="password"  [(ngModel)]="usuario.clave"></ion-input>
     </ion-col>
   </ion-row>
 
@@ -71,7 +71,7 @@
 
   <ion-row>
     <ion-col>
-      <ion-input type="password"  #confpassword></ion-input>
+      <ion-input type="password"  [(ngModel)]="contra"></ion-input>
     </ion-col>
   </ion-row>
 
@@ -89,7 +89,7 @@
 
   <ion-row>
     <ion-col>
-      <ion-input type="number"  #dni></ion-input>
+      <ion-input type="number"  [(ngModel)]="usuario.id"></ion-input>
     </ion-col>
   </ion-row>
 
@@ -101,7 +101,7 @@
 
   <ion-row>
     <ion-col>
-      <ion-input type="date"  #fecha></ion-input>
+      <ion-input type="date"  [(ngModel)]="usuario.f_nacimiento"></ion-input>
     </ion-col>
   </ion-row>
 
@@ -113,7 +113,7 @@
 
   <ion-row>
     <ion-col>
-      <ion-input type="tel"  #cell></ion-input>
+      <ion-input type="tel"  [(ngModel)]="usuario.num_cel"></ion-input>
     </ion-col>
   </ion-row>
 
@@ -125,7 +125,7 @@
 
   <ion-row>
     <ion-col class="ion-text-center">
-        <ion-button expand="block" color="dark" (click)="agregarUsuario(name, apellido, correo, password, confpassword, dni, fecha, cell);">Enviar datos</ion-button>
+        <ion-button expand="block" color="dark" (click)="agregarUsuario();">Enviar datos</ion-button>
     </ion-col>
   </ion-row>
 
