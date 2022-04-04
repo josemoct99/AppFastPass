@@ -47,7 +47,8 @@ export class LoginPage {
       this.interaction.closeLoading();
       this.interaction.mostrarToast("Ingreso con éxito");
       this.cambiarMenu();
-      this.router.navigate(['home']);
+      console.log("LOGIN: ",res.user.uid);
+      this.router.navigate(['home'], { queryParams: {idUsuario : res.user.uid}});
     }
 
   }

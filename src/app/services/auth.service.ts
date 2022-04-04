@@ -20,4 +20,5 @@ export class AuthService {
   SignIn(usuario : Usuario){
     return this.authFirebase.createUserWithEmailAndPassword(usuario.correo, usuario.clave);
   }
+
 }

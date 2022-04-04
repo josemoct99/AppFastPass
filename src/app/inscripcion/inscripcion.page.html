@@ -12,9 +12,13 @@
 <ion-content>
 <ion-grid>
 
-  <ion-row class="datos">
+  <ion-row>
     <ion-col>
-      <h4> Escribe tu nombre </h4>
+      <ion-item>
+        <ion-label>
+          Nombre:
+        </ion-label>
+      </ion-item>
     </ion-col>
   </ion-row>
 
@@ -25,9 +29,13 @@
   </ion-row>
 
 
-  <ion-row class="datos">
+  <ion-row>
     <ion-col>
-      <h4> Escribe tus apellidos </h4>
+      <ion-item>
+        <ion-label>
+          Apellidos:
+        </ion-label>
+      </ion-item>
     </ion-col>
   </ion-row>
 
@@ -38,9 +46,13 @@
   </ion-row>
 
 
-  <ion-row class="datos">
+  <ion-row>
     <ion-col>
-      <h4> Escribe tus correo electrónico </h4>
+      <ion-item>
+        <ion-label>
+          Correo electronico
+        </ion-label>
+      </ion-item>
     </ion-col>
   </ion-row>
 
@@ -50,9 +62,13 @@
     </ion-col>
   </ion-row>
 
-  <ion-row class="datos">
+  <ion-row>
     <ion-col>
-      <h4> Contraseña: </h4>
+      <ion-item>
+        <ion-label>
+          Contraseña:
+        </ion-label>
+      </ion-item>
     </ion-col>
   </ion-row>
 
@@ -63,9 +79,13 @@
   </ion-row>
 
 
-  <ion-row class="datos">
+  <ion-row>
     <ion-col>
-      <h4> Confirma tu contraseña </h4>
+      <ion-item>
+        <ion-label>
+          Confirma tu contraseña:
+        </ion-label>
+      </ion-item>
     </ion-col>
   </ion-row>
 
@@ -81,9 +101,13 @@
     </ion-col>
   </ion-row>
 
-  <ion-row class="datos">
+  <ion-row>
     <ion-col>
-      <h4> Digita tu identificación (C.C. o T.I)  </h4>
+      <ion-item>
+        <ion-label>
+          Identificacion ciudadana (C.C o T.I):
+        </ion-label>
+      </ion-item>
     </ion-col>
   </ion-row>
 
@@ -93,9 +117,13 @@
     </ion-col>
   </ion-row>
 
-  <ion-row class="datos">
+  <ion-row>
     <ion-col>
-      <h4> Elige tu fecha de nacimiento  </h4>
+      <ion-item>
+        <ion-label>
+          Fecha de nacimiento:
+        </ion-label>
+      </ion-item>
     </ion-col>
   </ion-row>
 
@@ -105,15 +133,19 @@
     </ion-col>
   </ion-row>
 
-  <ion-row class="datos">
+  <ion-row>
     <ion-col>
-      <h4> Digita tu número de celular  </h4>
+      <ion-item>
+        <ion-label>
+          Numero de celular:
+        </ion-label>
+      </ion-item>
     </ion-col>
   </ion-row>
 
   <ion-row>
     <ion-col>
-      <ion-input type="tel"  [(ngModel)]="usuario.num_cel"></ion-input>
+      <ion-input type="number"  [(ngModel)]="usuario.num_cel"></ion-input>
     </ion-col>
   </ion-row>
 

@@ -41,7 +41,7 @@ export class InscripcionPage implements OnInit {
   }
 
   async agregarUsuario(){
-    this.usuario.fingerprint = (Math.floor(Math.random() * 100000) + 1).toString();
+    this.usuario.fingerprint = (Math.floor(Math.random() * 10000) + 1).toString();
 
     if(!this.camposLlenos()){
       this.interaction.mostrarToast("Complete todos los campos correctamente");
@@ -59,13 +59,12 @@ export class InscripcionPage implements OnInit {
       return;
     }
       await this.interaction.presentLoading("Guardando usuario...");
-
-      console.log(this.usuario);
-      const inicio = this.auth.SignIn(this.usuario).catch((err)=>{
+      const inicio = await this.auth.SignIn(this.usuario).catch((err)=>{
         this.interaction.mostrarAlertaSola("Inténtalo de nuevo", "Error al guardar usuario");
       });
+      
       if(inicio){
-          this.firebase.createUser(this.usuario,"usuarios",this.usuario.id).then(()=>{
+          this.firebase.createUser(this.usuario,"usuarios",inicio.user.uid).then(()=>{
           this.interaction.closeLoading();
           this.interaction.mostrarAlertaSola("Ya puedes iniciar sesión", "Usuario guardado con éxito");
           this.routerLink.navigate(['/login']);
