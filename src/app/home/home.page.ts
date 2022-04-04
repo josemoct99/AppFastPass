@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnDestroy, OnInit} from '@angular/core';
 import { MenuController } from '@ionic/angular';
 import { FirestoreService } from '../services/firestore.service';
 import { Usuario } from './user-model';
@@ -10,13 +10,13 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage implements OnInit{
+export class HomePage implements OnInit, OnDestroy{
 
   logo : String
 
   perfil  : String
 
-  usuario : Usuario
+  public usuario : Usuario
 
   id : string
 
@@ -50,6 +50,14 @@ export class HomePage implements OnInit{
       correo : res.correo
     }
   });
+  }
+
+  getUser(){
+    return this.usuario;
+  }
+
+  ngOnDestroy(): void {
+    console.log("Destruyo la pag");
   }
 
 }

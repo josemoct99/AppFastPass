@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../home/user-model';
 import { UserService } from '../home/user.service';
 import { FirestoreService } from '../services/firestore.service';
+import { HomePageModule } from '../home/home.module';
 
 @Component({
   selector: 'app-actualizar-datos',
@@ -18,7 +19,8 @@ export class ActualizarDatosPage implements OnInit {
 
   constructor(
     private userService : UserService,
-    private firebase : FirestoreService) {
+    private firebase : FirestoreService,
+    private home : HomePageModule) {
     this.logo = "assets/img/logofastpass.png";
     this.perfil = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png";
 
@@ -35,18 +37,7 @@ export class ActualizarDatosPage implements OnInit {
   }
 
   ngOnInit() {
-    this.firebase.getUser<Usuario>("1031182625").subscribe( res=>{
-      this.usuario = {
-        id : "1031182625",
-        clave : res.clave,
-        fingerprint : res.fingerprint,
-        nombre : res.nombre,
-        apellido : res.apellido,
-        f_nacimiento : res.f_nacimiento,
-        num_cel : res.num_cel,
-        correo : res.correo
-      }
-    });
+    //this.usuario = this.home.();
   }
 
 }
