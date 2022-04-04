@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {RegistroService} from './registro.service'; //Llamo al servicio que me da conexion con BD
+import { RegistrosService } from '../services/registros.service'; //Llamo al servicio que me da conexion con BD
 
 @Component({
   selector: 'app-registro',
@@ -12,7 +12,7 @@ export class RegistroPage implements OnInit {
 
   logo : String
 
-  constructor(private registroService : RegistroService) {
+  constructor(private registroService : RegistrosService) {
 
     this.logo = "assets/img/logofastpass.png";
 

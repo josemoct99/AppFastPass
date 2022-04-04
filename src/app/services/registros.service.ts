@@ -1,31 +1,13 @@
 import { Injectable } from '@angular/core';
-import { Viaje } from './registro-detalle/registro.model';
+import { Viaje } from '../registro/registro-detalle/registro.model';
+
 @Injectable({
   providedIn: 'root'
 })
-export class RegistroService {
+export class RegistrosService {
 
+  public viajes: Viaje[] =[
 
-
-    public viajes: Viaje[] = [
-    {
-      id : "000001",
-      tipo: "Troncal",
-      fecha: "12/02/2021",
-      ruta: "H20"
-    },
-    {
-      id : "000002",
-      tipo: "Troncal",
-      fecha: "12/02/2021",
-      ruta: "D20"
-    },
-    {
-      id : "000003",
-      tipo: "Zonal",
-      fecha: "15/02/2021",
-      ruta: "107A"
-    }
   ]
 
   constructor() { }
@@ -49,6 +31,10 @@ export class RegistroService {
       fecha,
       ruta
     });
+   }
+
+   restartViajes(){
+     this.viajes = [];
    }
 
   deleteViaje(viajeID : string) {

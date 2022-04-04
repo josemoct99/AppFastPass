@@ -2,8 +2,10 @@ import { Component, OnDestroy, OnInit} from '@angular/core';
 import { MenuController } from '@ionic/angular';
 import { FirestoreService } from '../services/firestore.service';
 import { Usuario } from './user-model';
-import { UserService } from './user.service';
 import { ActivatedRoute } from '@angular/router';
+import { UsuarioService } from '../services/usuario.service';
+import { Viaje } from '../registro/registro-detalle/registro.model';
+import { RegistrosService } from '../services/registros.service';
 
 @Component({
   selector: 'app-home',
@@ -16,15 +18,18 @@ export class HomePage implements OnInit, OnDestroy{
 
   perfil  : String
 
-  public usuario : Usuario
+  viajes : Viaje[] = []
+
+  usuario : Usuario
 
   id : string
 
     constructor(
     private menu: MenuController,
-    private userService : UserService,
+    private servicioUsuario : UsuarioService,
     private firebaseService :FirestoreService,
-    private route : ActivatedRoute) {
+    private route : ActivatedRoute,
+    private servicioRegistros : RegistrosService) {
     this.logo = "assets/img/logofastpass.png";
     this.perfil = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png";
     console.log("Constructor LOGIN");
@@ -36,7 +41,6 @@ export class HomePage implements OnInit, OnDestroy{
     this.route.queryParams.subscribe(params=>{
       this.id = params.idUsuario;
     })
-    console.log("HOME: ",this.id);
 
     this.firebaseService.getUser<Usuario>(this.id).subscribe( res=>{
     this.usuario = {
@@ -47,17 +51,44 @@ export class HomePage implements OnInit, OnDestroy{
       apellido : res.apellido,
       f_nacimiento : res.f_nacimiento,
       num_cel : res.num_cel,
-      correo : res.correo
+      correo : res.correo,
     }
+    this.servicioUsuario.setUsuario(this.usuario);
   });
+    console.log("Voy a getViajesUser");
+    this.getViajes();
   }
+/*
+  async getViajes(){
+    const res = await this.firebaseService.getViajesUser(this.id);
+    res.forEach((doc) => {
+      this.servicioRegistros.addViaje(doc.id, doc.data()['tipo'], doc.data()['fecha'], doc.data()['ruta']);
+    });
+    //console.log(viajes);
+  }*/
+
+  getViajes(){
+    if(this.id==null){
+      return;
+    }
+    this.firebaseService.getViajesUser<Viaje>(this.id).subscribe(res =>{
+      console.log('Hubo cambio de viajes en el usuario de id:', this.id);
+      this.servicioRegistros.restartViajes();
+      res.forEach((doc) => {
+        this.servicioRegistros.addViaje(doc['id'], doc['tipo'], doc['fecha'], doc['ruta']);
+      });
+    });
+
+  }
+
+
 
   getUser(){
     return this.usuario;
   }
 
   ngOnDestroy(): void {
-    console.log("Destruyo la pag");
+    this.id = null;
   }
 
 }

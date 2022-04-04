@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute} from '@angular/router'; //Me permite mirar los parametros de la URL
 import { AlertController, ToastController } from '@ionic/angular';
 import { InteractionService } from 'src/app/services/interaction.service';
-import { RegistroService } from '../registro.service'; //Utilizamos nuevamente el servicio para acceder a metodos de la BD
+import { RegistrosService } from 'src/app/services/registros.service'; //Utilizamos nuevamente el servicio para acceder a metodos de la BD
 import { Viaje } from './registro.model'; //Utilizamos el modelo viaje
 
 @Component({
@@ -18,7 +18,7 @@ export class RegistroDetallePage implements OnInit {
 
   constructor(
     private activatedRoute : ActivatedRoute,
-    private registroService : RegistroService,
+    private registroService : RegistrosService,
     public alertController: AlertController,
     public toastController : ToastController,
     public interaction : InteractionService) { }

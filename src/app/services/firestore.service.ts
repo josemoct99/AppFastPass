@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Usuario } from '../home/user-model';
+import { collection, getFirestore, getDocs } from '@angular/fire/firestore';
+
+
 
 @Injectable({
   providedIn: 'root'
 })
-export class FirestoreService {
+export class FirestoreService{
 
   constructor(private firestore: AngularFirestore) { }
 
@@ -22,4 +25,16 @@ export class FirestoreService {
     return this.firestore.collection<tipo>("usuarios").doc(id).valueChanges();
   }
 
+   getViajesUser<tipo>(id : string){
+    //console.log('ID pasado : ', id);
+    return this.firestore.collection<tipo>('usuarios').doc(id).collection('viajes').valueChanges();
+    //return getDocs(collection(this.firestore.firestore, "usuarios", id, "viajes")); 
+
+  }
+
+  docAplanado(doc){
+    return {id:doc.id, ...doc.data()};
+  }
+
+  
 }
