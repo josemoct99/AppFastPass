@@ -6,6 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 import { UsuarioService } from '../services/usuario.service';
 import { Viaje } from '../registro/registro-detalle/registro.model';
 import { RegistrosService } from '../services/registros.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -13,6 +14,8 @@ import { RegistrosService } from '../services/registros.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit, OnDestroy{
+
+  //private subscription : Subscription
 
   logo : String
 
@@ -42,7 +45,7 @@ export class HomePage implements OnInit, OnDestroy{
       this.id = params.idUsuario;
     })
 
-    this.firebaseService.getUser<Usuario>(this.id).subscribe( res=>{
+    const sub = this.firebaseService.getUser<Usuario>(this.id).subscribe( res=>{
     this.usuario = {
       id : res.id,
       clave : res.clave,
@@ -55,8 +58,15 @@ export class HomePage implements OnInit, OnDestroy{
     }
     this.servicioUsuario.setUsuario(this.usuario);
   });
-    console.log("Voy a getViajesUser");
-    this.getViajes();
+  
+  //this.subscription.add(sub);
+  console.log("Voy a getViajesUser");
+  this.getViajes();
+  }
+
+  ngOnDestroy(): void {
+    this.id = null;
+    //this.subscription.unsubscribe();
   }
 /*
   async getViajes(){
@@ -71,13 +81,15 @@ export class HomePage implements OnInit, OnDestroy{
     if(this.id==null){
       return;
     }
-    this.firebaseService.getViajesUser<Viaje>(this.id).subscribe(res =>{
+    const sub = this.firebaseService.getViajesUser<Viaje>(this.id).subscribe(res =>{
       console.log('Hubo cambio de viajes en el usuario de id:', this.id);
       this.servicioRegistros.restartViajes();
       res.forEach((doc) => {
         this.servicioRegistros.addViaje(doc['id'], doc['tipo'], doc['fecha'], doc['ruta']);
       });
-    });
+    })
+
+    //this.subscription.add(sub);
 
   }
 
@@ -87,8 +99,6 @@ export class HomePage implements OnInit, OnDestroy{
     return this.usuario;
   }
 
-  ngOnDestroy(): void {
-    this.id = null;
-  }
+
 
 }

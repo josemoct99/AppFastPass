@@ -1,6 +1,6 @@
 ion-content{
 
-    --ion-background-color:#000000;
+    --ion-background-color:#353d61;
 }
 
 ion-img {
@@ -10,4 +10,10 @@ ion-img {
     height: 300px; 
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .cell-class {
+    border-color: black; 
+    border-width: .01em; 
+    border-style:solid; margin-bottom : -1px;
   }

@@ -4,7 +4,7 @@
       <ion-back-button defaultHref = "/registro"></ion-back-button>
     </ion-buttons>
 
-    <ion-title>Registro viaje {{viaje.id}}</ion-title>
+    <ion-title>Registro de viaje</ion-title>
     <ion-button (click)="presentAlert()" slot="end" color="dark">
       <ion-icon name="information-circle-outline" ></ion-icon>
     </ion-button>
@@ -14,6 +14,15 @@
 <ion-content>
 
   <ion-grid class="ion-no-padding"> <!--Rejilla que puede ubicar elementos-->
+
+    <ion-row>
+      <ion-col>
+        <h2 class="ion-text-center">ID: {{viaje.id}}</h2>
+      </ion-col>
+    </ion-row>
+
+
+
     <ion-row><!--Primera fila-->
       <ion-col>
         <ion-img [src]="imagen" ></ion-img>
@@ -21,18 +30,18 @@
     </ion-row>
 
     <ion-row>
-      <ion-col>
+      <ion-col >
         <h1 class="ion-text-center">Servicio {{viaje.tipo}} tomado</h1>
       </ion-col>
     </ion-row>
 
     <ion-row>
-      <ion-col>
+      <ion-col class="cell-class">
         <h4>El bus ingresado ha sido {{viaje.ruta}}</h4>
       </ion-col>
     </ion-row>
 
-    <ion-row>
+    <ion-row class="cell-class">
       <ion-col>
         <h4>Fecha de ingreso: {{viaje.fecha}}</h4>
       </ion-col>

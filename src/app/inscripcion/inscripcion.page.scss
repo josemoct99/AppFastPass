@@ -4,5 +4,26 @@
   }
 
 .importante{
-  color: red;
+  color: #f5756a
+}
+
+ion-content{
+
+  --ion-background-color:#353d61;
+}
+
+a{
+  color: #f5756a;
+}
+
+ion-col{
+  ion-input{
+     border: solid 1px #f5756a;
+  }
+}
+
+ion-row{
+  ion-textarea{
+     border: solid 1px #f5756a;
+  }
 }

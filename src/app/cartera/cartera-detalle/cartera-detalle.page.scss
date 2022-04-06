@@ -6,3 +6,14 @@ ion-img {
     margin-left: auto;
     margin-right: auto;
   }
+
+  ion-content{
+
+    --ion-background-color:#353d61;
+}
+
+  .cell-class {
+    border-color: black; 
+    border-width: .01em; 
+    border-style:solid; margin-bottom : -1px;
+  }

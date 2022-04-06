@@ -4,7 +4,7 @@
       <ion-back-button defaultHref = "/registro"></ion-back-button>
     </ion-buttons>
 
-    <ion-title>Registro pago {{pago.id}}</ion-title>
+    <ion-title>Registro de pago</ion-title>
     <ion-button (click)="presentAlert()" slot="end" color="dark">
       <ion-icon name="information-circle-outline"></ion-icon>
     </ion-button>
@@ -14,6 +14,15 @@
 <ion-content>
 
   <ion-grid class="ion-no-padding"> <!--Rejilla que puede ubicar elementos-->
+
+
+    <ion-row>
+      <ion-col>
+        <h2 class="ion-text-center">ID: {{pago.id}}</h2>
+      </ion-col>
+    </ion-row>
+
+
     <ion-row><!--Primera fila-->
       <ion-col>
         <ion-img [src]  ="imagen" ></ion-img>
@@ -21,19 +30,19 @@
     </ion-row>
 
     <ion-row>
-      <ion-col>
+      <ion-col >
         <h1 class="ion-text-center">Pago con {{pago.banco}} realizado</h1>
       </ion-col>
     </ion-row>
 
     <ion-row>
-      <ion-col>
+      <ion-col class="cell-class">
         <h4>El valor pagado ha sido ${{pago.valor}}</h4>
       </ion-col>
     </ion-row>
 
     <ion-row>
-      <ion-col>
+      <ion-col class="cell-class">
         <h4>Fecha de pago: {{pago.fecha}}</h4>
       </ion-col>
     </ion-row>
