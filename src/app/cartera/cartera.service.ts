@@ -6,26 +6,8 @@ import { Pago } from './cartera-detalle/cartera-model';
 })
 export class CarteraService {
 
-  public pagos: Pago[] = [
-    {
-      id : "000001",
-      fecha: "12/02/2021",
-      valor: 2650,
-      banco : "Nequi"
-    },
-    {
-      id : "000002",
-      fecha: "12/02/2021",
-      valor: 2650,
-      banco : "Daviplata"
-    },
-    {
-      id : "000003",
-      fecha: "15/02/2021",
-      valor: 2450,
-      banco : "Nequi"
-    },
-  ]
+
+  public pagos: Pago[] = []
 
   constructor() { }
 
@@ -55,4 +37,9 @@ export class CarteraService {
       return viaje.id !== pagoID
     });
    }
+
+
+   restartPagos() {
+    this.pagos = []
+  }
 }

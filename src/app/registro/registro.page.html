@@ -20,11 +20,16 @@
     </ion-row>
   </ion-grid>
 
-  <ion-list>
+  <ion-list *ngIf="viajes.length>0; else sinRegistro">
     <ion-item *ngFor="let viaje of viajes" [routerLink]="['/registro', viaje.id]">
       {{viaje.tipo}}
     </ion-item>
-
   </ion-list>
+
+  <ng-template #sinRegistro>
+    <ion-text >
+      <p class="ion-text-center">No hay viajes realizados aún</p>
+    </ion-text>
+  </ng-template>
 
 </ion-content>

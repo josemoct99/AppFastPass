@@ -7,6 +7,7 @@ import { UsuarioService } from '../services/usuario.service';
 import { Viaje } from '../registro/registro-detalle/registro.model';
 import { RegistrosService } from '../services/registros.service';
 import { Subscription } from 'rxjs';
+import { CarteraService } from '../cartera/cartera.service';
 
 @Component({
   selector: 'app-home',
@@ -32,7 +33,8 @@ export class HomePage implements OnInit, OnDestroy{
     private servicioUsuario : UsuarioService,
     private firebaseService :FirestoreService,
     private route : ActivatedRoute,
-    private servicioRegistros : RegistrosService) {
+    private servicioRegistros : RegistrosService,
+    private servicioPagos : CarteraService) {
     this.logo = "assets/img/logofastpass.png";
     this.perfil = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png";
     console.log("Constructor LOGIN");
@@ -58,7 +60,7 @@ export class HomePage implements OnInit, OnDestroy{
     }
     this.servicioUsuario.setUsuario(this.usuario);
   });
-  
+
   //this.subscription.add(sub);
   console.log("Voy a getViajesUser");
   this.getViajes();
@@ -68,14 +70,6 @@ export class HomePage implements OnInit, OnDestroy{
     this.id = null;
     //this.subscription.unsubscribe();
   }
-/*
-  async getViajes(){
-    const res = await this.firebaseService.getViajesUser(this.id);
-    res.forEach((doc) => {
-      this.servicioRegistros.addViaje(doc.id, doc.data()['tipo'], doc.data()['fecha'], doc.data()['ruta']);
-    });
-    //console.log(viajes);
-  }*/
 
   getViajes(){
     if(this.id==null){
@@ -84,8 +78,10 @@ export class HomePage implements OnInit, OnDestroy{
     const sub = this.firebaseService.getViajesUser<Viaje>(this.id).subscribe(res =>{
       console.log('Hubo cambio de viajes en el usuario de id:', this.id);
       this.servicioRegistros.restartViajes();
+      this.servicioPagos.restartPagos();
       res.forEach((doc) => {
         this.servicioRegistros.addViaje(doc['id'], doc['tipo'], doc['fecha'], doc['ruta']);
+        this.servicioPagos.addPago(doc['id'],doc['fecha'],doc['valor'], doc['banco']);
       });
     })
 
