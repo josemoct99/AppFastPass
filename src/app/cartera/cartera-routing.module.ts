@@ -11,6 +11,10 @@ const routes: Routes = [
   {
     path: 'cartera-detalle',
     loadChildren: () => import('./cartera-detalle/cartera-detalle.module').then( m => m.CarteraDetallePageModule)
+  },
+  {
+    path: 'billetera',
+    loadChildren: () => import('./billetera/billetera.module').then( m => m.BilleteraPageModule)
   }
 ];
 

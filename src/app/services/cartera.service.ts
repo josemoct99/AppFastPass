@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Pago } from './cartera-detalle/cartera-model';
+import { Pago } from '../cartera/cartera-detalle/cartera-model';
+import { Billetera } from '../cartera/billetera/billetera.model';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +9,8 @@ export class CarteraService {
 
 
   public pagos: Pago[] = []
+
+  public billetera : Billetera
 
   constructor() { }
 
@@ -42,4 +45,13 @@ export class CarteraService {
    restartPagos() {
     this.pagos = []
   }
+
+  setBilltera(billetera){
+    this.billetera = billetera;
+  }
+
+  getBilletera(){
+    return this.billetera;
+  }
+
 }

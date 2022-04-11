@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { BilleteraPageModule } from './cartera/billetera/billetera.module';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
       {
         path: ":carteraID",
         loadChildren: () => import('./cartera/cartera-detalle/cartera-detalle-routing.module').then( m => m.CarteraDetallePageRoutingModule)
+      },
+      {
+        path: "billetera",
+        loadChildren:() => import('./cartera/billetera/billetera-routing.module').then(m => m.BilleteraPageRoutingModule)
       }
     ]
 

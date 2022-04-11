@@ -7,7 +7,7 @@ import { UsuarioService } from '../services/usuario.service';
 import { Viaje } from '../registro/registro-detalle/registro.model';
 import { RegistrosService } from '../services/registros.service';
 import { Subscription } from 'rxjs';
-import { CarteraService } from '../cartera/cartera.service';
+import { CarteraService } from '../services/cartera.service';
 
 @Component({
   selector: 'app-home',
@@ -57,8 +57,10 @@ export class HomePage implements OnInit, OnDestroy{
       f_nacimiento : res.f_nacimiento,
       num_cel : res.num_cel,
       correo : res.correo,
+      billetera : res.billetera
     }
     this.servicioUsuario.setUsuario(this.usuario);
+    this.servicioPagos.setBilltera(this.usuario.billetera);
   });
 
   //this.subscription.add(sub);

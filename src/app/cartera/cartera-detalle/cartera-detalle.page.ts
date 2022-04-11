@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AlertController, ToastController } from '@ionic/angular';
 import { InteractionService } from 'src/app/services/interaction.service';
-import { CarteraService } from '../cartera.service';
+import { CarteraService } from '../../services/cartera.service';
 import { Pago } from './cartera-model';
 
 @Component({
